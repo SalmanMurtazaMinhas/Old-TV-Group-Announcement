@@ -4,51 +4,61 @@ const slotSymbols = [
   ['Zainab',"",'Sayed', "",'Hasan',  'Kawther','Amira']
 ];
 
-const spinButton = document.querySelector('.spin-button')
+const spinButton = document.querySelectorAll('.spin-button')
+// const spinButton = document.getElementsByClassName('spin-button')
+console.log(spinButton)
+
+const video = document.querySelector('video')
 
   const meme01 = document.querySelector('.meme01')
   const meme02 = document.querySelector('.meme02')
   const meme03 = document.querySelector('.meme03')
   const meme04 = document.querySelector('.meme04')
-  const meme05 = document.querySelector('.meme05')
-  const meme06 = document.querySelector('.meme06')
+  // const meme05 = document.querySelector('.meme05')
+  // const meme06 = document.querySelector('.meme06')
 
   const spinAudio = document.querySelector('.spin-audio')
-  const audio = document.querySelector('audio')
-  const memeAudio01 = document.querySelector('.meme-audio-01')
-  const memeAudio02 = document.querySelector('.meme-audio-02')
-  const memeAudio03 = document.querySelector('.meme-audio-03')
-  const memeAudio04 = document.querySelector('.meme-audio-04')
-  const memeAudio05 = document.querySelector('.meme-audio-05')
-  const memeAudio06 = document.querySelector('.meme-audio-06')
+  // const audio = document.querySelector('audio')
+  // const memeAudio01 = document.querySelector('.meme-audio-01')
+  // const memeAudio02 = document.querySelector('.meme-audio-02')
+  // const memeAudio03 = document.querySelector('.meme-audio-03')
+  // const memeAudio04 = document.querySelector('.meme-audio-04')
+  // const memeAudio05 = document.querySelector('.meme-audio-05')
+  // const memeAudio06 = document.querySelector('.meme-audio-06')
 
-  spinButton.addEventListener('click', () => {
-    // console.log('sudio')
-    spinAudio.play()
-  })
+
+  for(i = 0 ; i < spinButton.length ; i++){
+    spinButton[i].addEventListener('click', () => {
+      spinAudio.play()
+    })
+  }
 
   meme01.addEventListener('click', () => {
-    memeAudio01.play()
+    video.setAttribute('src', 'video03.mp4')
+    video.play()
   })
 
+  // meme02.addEventListener('click', () => {
+  //   memeAudio02.play()
+  // })
+
   meme02.addEventListener('click', () => {
-    memeAudio02.play()
+    video.setAttribute('src', 'video02.mp4')
+    video.play()
   })
 
   meme03.addEventListener('click', () => {
-    memeAudio03.play()
+    video.setAttribute('src', 'video01.mp4')
+    video.play()
   })
+
+  // meme04.addEventListener('click', () => {
+  //   memeAudio05.play()
+  // })
 
   meme04.addEventListener('click', () => {
-    memeAudio04.play()
-  })
-
-  meme05.addEventListener('click', () => {
-    memeAudio05.play()
-  })
-
-  meme06.addEventListener('click', () => {
-    memeAudio06.play()
+    video.setAttribute('src', 'video04.mp4')
+    video.play()
   })
     function createSymbolElement(symbol) {
       const div = document.createElement('div');
@@ -73,7 +83,7 @@ const spinButton = document.querySelector('.spin-button')
 
         symbols.innerHTML = '';
 
-        symbols.appendChild(createSymbolElement('❓❓❓'));
+        symbols.appendChild(createSymbolElement('📺'));
 
         for (let i = 0; i < 50; i++) {
           slotSymbols[index ].forEach(symbol => {
@@ -103,9 +113,11 @@ const spinButton = document.querySelector('.spin-button')
 
     function reset() {
       const slots = document.querySelectorAll('.slot');
+    video.setAttribute('src', '')
 
-      memeAudio06.pause()
-      memeAudio06.currentTime = 0
+
+      // memeAudio06.pause()
+      // memeAudio06.currentTime = 0
       
       slots.forEach(slot => {
         const symbols = slot.querySelector('.symbols');
