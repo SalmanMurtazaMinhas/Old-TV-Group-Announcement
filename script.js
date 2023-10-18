@@ -83,7 +83,7 @@ const video = document.querySelector('video')
 
         symbols.innerHTML = '';
 
-        symbols.appendChild(createSymbolElement('📺'));
+        symbols.appendChild(createSymbolElement('❓'));
 
         for (let i = 0; i < 50; i++) {
           slotSymbols[index ].forEach(symbol => {
